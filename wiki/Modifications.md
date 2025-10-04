@@ -133,7 +133,7 @@ java -jar apktool.jar d MifiService.apk -o MifiService
    - Search for all instances of `192.168.100.` in the `MifiService` folder
    - Replace with your desired IP range (e.g., `192.168.1.` or `192.168.0.`)
 
-   > [!TIP]
+   > [!NOTE]
    > Use VS Code's global search and replace feature (Ctrl+Shift+H) to find and replace all instances efficiently.
 
 1. Recompile the APK:
@@ -142,7 +142,7 @@ java -jar apktool.jar d MifiService.apk -o MifiService
 java -jar apktool.jar b -o unsigned.apk MifiService
 ```
 
-1. Sign and align the APK:
+1. Sign and align the APK (PASS: android):
 
 ```bash
 zipalign -v 4 unsigned.apk aligned.apk
@@ -227,6 +227,7 @@ I've created a [modified version](https://github.com/AlienWolfX/UZ801-USB_MODEM/
 If you encounter issues:
 
 - Ensure USB debugging is enabled
+- Ensure all dependencies are installed
 - Try different USB ports
 - Verify ADB connection: `adb devices`
 - Check USB cable quality
