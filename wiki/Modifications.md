@@ -121,6 +121,100 @@ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ./platform.keys
 adb install -r aligned.apk
 ```
 
+### Changing Default IP by [tarokeitaro](https://github.com/AlienWolfX/UZ801-USB_MODEM/issues/11#issuecomment-2473418269)
+
+1. Decompile APK:
+
+```bash
+java -jar apktool.jar d MifiService.apk -o MifiService
+```
+
+1. Replace IP addresses in the decompiled APK:
+   - Search for all instances of `192.168.100.` in the `MifiService` folder
+   - Replace with your desired IP range (e.g., `192.168.1.` or `192.168.0.`)
+
+   > [!TIP]
+   > Use VS Code's global search and replace feature (Ctrl+Shift+H) to find and replace all instances efficiently.
+
+1. Recompile the APK:
+
+```bash
+java -jar apktool.jar b -o unsigned.apk MifiService
+```
+
+1. Sign and align the APK:
+
+```bash
+zipalign -v 4 unsigned.apk aligned.apk
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ./platform.keystore aligned.apk testkey
+```
+
+1. Install the modified APK:
+
+```bash
+adb install -r aligned.apk
+```
+
+1. Mount `/system` partition as read-write:
+
+```bash
+mount -o rw,remount,rw /system
+```
+
+1. Edit the initialization script:
+
+```bash
+busybox vi /system/bin/initmifiservice.sh
+```
+
+   Find line 22: `ifconfig br0 192.168.100.1 up` and change the IP to match your chosen range.
+
+   > [!NOTE]
+   > This script sets the bridge interface IP. Make sure it matches your APK modifications.
+
+1. Pull the Android services framework:
+
+```bash
+adb pull /system/framework/services.jar
+```
+
+1. Decompile the services framework:
+
+```bash
+java -jar apktool.jar d -o services services.jar
+```
+
+1. Update IP addresses in services framework:
+    - Search for all instances of `192.168.100.` in the `services` folder
+    - Replace with your chosen IP range to maintain consistency
+
+1. Recompile the services framework:
+
+```bash
+java -jar apktool.jar b -c -f -o services.jar services
+```
+
+1. Push the modified services framework back to device:
+
+```bash
+adb push services.jar /system/framework/
+```
+
+1. Remount `/system` as read-only:
+
+```bash
+mount -o ro,remount,ro /system
+```
+
+1. Reboot device for changes to take effect:
+
+```bash
+adb reboot
+```
+
+> [!WARNING]
+> Ensure all three components (APK, script, and services.jar) use the same IP range, or the device may not function correctly.
+
 ### Pre-modified APK
 
 I've created a [modified version](https://github.com/AlienWolfX/UZ801-USB_MODEM/releases/download/rev1/MifiService_with_cmd_shell.apk) that:
