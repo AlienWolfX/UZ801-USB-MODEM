@@ -11,13 +11,13 @@
 
 ## Project Statistics
 
-[![Stargazers](https://reporoster.com/stars/AlienWolfX/UZ801-USB_MODEM)](https://github.com/AlienWolfX/UZ801-USB-MODEM/stargazers)
+[![Stargazers](https://reporoster.com/stars/AlienWolfX/UZ801-USB-MODEM)](https://github.com/AlienWolfX/UZ801-USB-MODEM/stargazers)
 
-<a href="https://www.star-history.com/#AlienWolfX/UZ801-USB_MODEM&Date">
+<a href="https://www.star-history.com/#AlienWolfX/UZ801-USB-MODEM&Date">
     <picture>
-        <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=AlienWolfX/UZ801-USB_MODEM&type=Date&theme=dark" />
-        <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=AlienWolfX/UZ801-USB_MODEM&type=Date" />
-        <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=AlienWolfX/UZ801-USB_MODEM&type=Date" />
+        <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=AlienWolfX/UZ801-USB-MODEM&type=Date&theme=dark" />
+        <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=AlienWolfX/UZ801-USB-MODEM&type=Date" />
+        <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=AlienWolfX/UZ801-USB-MODEM&type=Date" />
     </picture>
 </a>
 
