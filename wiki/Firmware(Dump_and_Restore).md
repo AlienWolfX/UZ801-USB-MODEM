@@ -45,32 +45,3 @@ python3 edl wf backup_filename.bin
 ```bash
 python3 edl rl output_folder --genxml
 ```
-
-## Analyzing the Firmware
-
-You can examine the partition structure of your backup using these tools:
-
-- PowerISO
-- 7-Zip
-- HxD (Hex Editor)
-
-## Important Notes
-
-> [!IMPORTANT]
->
-> - Always keep a backup of your original firmware
-> - Ensure stable USB connection during operations
-> - Do not interrupt the dump/restore process
-> - Use a high-quality USB cable
-> - Keep device cool during operations
-
-## Troubleshooting
-
-If the device is not detected in EDL mode:
-
-1. Check USB drivers are properly installed
-2. Try different USB ports
-3. Verify cable connection
-4. Ensure proper EDL mode entry
-
-For Windows users: Install the QDLoader 9008 driver if not automatically detected.

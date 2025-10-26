@@ -1,11 +1,8 @@
 # UZ801 v3.2 USB Modem Analysis
 
-> [!NOTE]
-> This repository contains analysis and modifications for the UZ801 v3.2 USB modem. For detailed documentation, please visit our [Wiki](https://github.com/AlienWolfX/UZ801-USB_MODEM/wiki).
-
 ## Quick Links
 
-- [Overview](https://github.com/AlienWolfX/UZ801-USB_MODEM/wiki/Overview)
+- [Introduction](https://github.com/AlienWolfX/UZ801-USB_MODEM/wiki/Introduction)
 - [Firmware Dump and Restore](<https://github.com/AlienWolfX/UZ801-USB_MODEM/wiki/Firmware(Dump_and_Restore)>)
 - [Modifications](https://github.com/AlienWolfX/UZ801-USB_MODEM/wiki/Modifications)
 - [OpenWRT](https://github.com/AlienWolfX/UZ801-USB_MODEM/wiki/OpenWRT)

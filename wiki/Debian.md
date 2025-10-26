@@ -22,13 +22,13 @@ unzip openstick-uz801-v3.0.zip
 cd openstick-uz801
 ```
 
-1. Boot into fastboot mode:
+3. Boot into fastboot mode:
 
 ```bash
 adb reboot bootloader
 ```
 
-1. Flash the firmware:
+4. Flash the firmware:
 
 - **Windows**:
 
@@ -47,26 +47,14 @@ chmod +x flash.sh
 
 ## Verification
 
-After successful installation:
+After successful installation run:
 
-- Device will reboot automatically
-- Network interfaces will be available
-- Basic functions should work out of the box
+`ssh user@192.168.200.1`
 
-## Configuration
-
-Configure the device according to your needs:
-
-- Network settings
-- SSH access
-- Package installations
-- Firmware customizations
+Password is: **1**
 
 ## Additional Resources
 
 - [Wim van 't Hoog's Blog](https://wvthoog.nl/openstick/) - Original project documentation
 - [Debian MSM8916 Wiki](https://wiki.debian.org/msm8916) - Platform documentation
-- [Troubleshooting Guide](troubleshooting.md) - Common issues and solutions
-
-> [!NOTE]
-> This installation uses mainline kernel support for MSM8916 platform, ensuring better long-term compatibility.
+- [Troubleshooting Guide](troubleshooting.md) - Common issues and solutions.

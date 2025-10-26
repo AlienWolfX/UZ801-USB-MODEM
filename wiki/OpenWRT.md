@@ -24,7 +24,7 @@ tar xf openwrt-UZ801.tar.xz
 cd OpenWRT-UZ801
 ```
 
-1. Run the appropriate flash script:
+2. Run the appropriate flash script:
 
 - **Windows**:
 
