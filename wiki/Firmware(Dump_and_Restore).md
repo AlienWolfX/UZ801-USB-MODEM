@@ -1,11 +1,11 @@
 
 ## Entering EDL Mode
 
-There are two methods to enable Emergency Download (EDL) mode:
+There are two methods to enter EDL mode on the device:
 
 ### Method 1: Using ADB
 
-**For Stock firmware:**
+**For Stock firmware:** (Only works with some UZ801)
 
 ```bash
 adb reboot edl

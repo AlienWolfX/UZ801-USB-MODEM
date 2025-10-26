@@ -208,10 +208,3 @@ adb reboot
 
 > [!WARNING]
 > Ensure all three components (APK, script, and services.jar) use the same IP range, or the device may not function correctly.
-
-#### Pre-modified APK
-
-I've created a [modified version](https://github.com/AlienWolfX/UZ801-USB_MODEM/releases/download/rev1/MifiService_with_cmd_shell.apk) that:
-
-- Replaces password modification (`funcNo: 1020`) with command execution
-- Returns command results directly in the web
