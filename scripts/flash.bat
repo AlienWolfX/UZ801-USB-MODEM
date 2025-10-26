@@ -1,7 +1,6 @@
 @echo off
 echo =============================
 echo        Flasher Tool
-echo https://github.com/AlienWolfX
 echo =============================
 
 fastboot flash fsc ../files/required_partitions/fsc.bin

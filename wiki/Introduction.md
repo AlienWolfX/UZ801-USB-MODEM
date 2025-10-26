@@ -8,6 +8,17 @@ A couple of months ago, I purchased this 4G LTE USB dongle from Shopee for aroun
 | ![board1](https://i.ibb.co/jTwXYQ8/soc1.jpg "board1")   | ![board2](https://i.ibb.co/GWfPq4M/soc2.jpg "board2")   |
 | ![front](https://i.ibb.co/dQ82vyz/soc3.jpg "front")     |                                                         |
 
+## ADB
+
+Some devices do not have ADB enabled by default. To enable ADB:
+
+1. Connect to the device and open this URL in a browser: `http://192.168.100.1/usbdebug.html`.
+2. Verify by:
+
+```bash
+adb devices
+```
+
 ## Device Specifications
 
 The heart of the dongle is an MSM8916, running a stripped-down version of Android 4.4.4 KitKat. Interestingly, **the setup restricts the use of two CPU cores, likely to prevent the device from overheating**.
@@ -87,4 +98,27 @@ VmallocChunk:     311324 kB
 
 The web UI is so poorly designed that you can bypass it entirely by simply changing the URL and calling **_main.html_** to access the main page. This goes the same as with the other pages.
 
-![WTF?](https://i.ibb.co/NYnHgC1/horrible_authentication.gif)
+## Display
+
+The device runs Android with LCD support enabled. First, keep the screen awake and wake the device (the device may otherwise present a blank screen):
+
+```bash
+adb shell settings put system screen_off_timeout 2147483647
+adb shell input keyevent 26
+```
+
+### adbcontrol
+
+Download: [adbcontrol.zip](https://github.com/AlienWolfX/UZ801-USB_MODEM/releases/download/rev1/adbcontrol.zip)
+
+Quick steps:
+
+```bash
+unzip adbcontrol.zip
+cd adbcontrol
+# Edit config.properties to point to your adb executable and an output folder
+# Example config.properties entries:
+# adbCommand=C:\path\to\adb.exe
+# localImageFilePath=C:\tmp\adbcontrol_images
+java -jar adbcontrol.jar
+```
