@@ -100,34 +100,28 @@ mv platform.keystore {YOUR_WORK_DIR}
 java -jar apktool.jar d MifiService.apk -o MifiService
 ```
 
-1. Make modifications in the `assets` folder or any part of the APK that you need to modify
+2. Make modifications in the `assets` folder or any part of the APK that you need to modify
 
-1. Recompile (use `android` as passphrase when prompted):
+3. Recompile (use `android` as passphrase when prompted):
 
 ```bash
 java -jar apktool.jar b -o unsigned.apk MifiService
 ```
 
-1. Sign and align:
+4. Sign and align:
 
 ```bash
 zipalign -v 4 unsigned.apk aligned.apk
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ./platform.keystore aligned.apk testkey
 ```
 
-1. Install modified APK:
+5. Install modified APK:
 
 ```bash
 adb install -r aligned.apk
 ```
 
-### Changing Default IP by [tarokeitaro](https://github.com/AlienWolfX/UZ801-USB_MODEM/issues/11#issuecomment-2473418269)
-
-1. Decompile APK:
-
-```bash
-java -jar apktool.jar d MifiService.apk -o MifiService
-```
+#### Changing Default IP by [tarokeitaro](https://github.com/AlienWolfX/UZ801-USB_MODEM/issues/11#issuecomment-2473418269)
 
 1. Replace IP addresses in the decompiled APK:
    - Search for all instances of `192.168.100.` in the `MifiService` folder
@@ -136,32 +130,32 @@ java -jar apktool.jar d MifiService.apk -o MifiService
    > [!NOTE]
    > Use VS Code's global search and replace feature (Ctrl+Shift+H) to find and replace all instances efficiently.
 
-1. Recompile the APK:
+2. Recompile the APK:
 
 ```bash
 java -jar apktool.jar b -o unsigned.apk MifiService
 ```
 
-1. Sign and align the APK (PASS: android):
+3. Sign and align the APK (PASS: android):
 
 ```bash
 zipalign -v 4 unsigned.apk aligned.apk
 jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ./platform.keystore aligned.apk testkey
 ```
 
-1. Install the modified APK:
+4. Install the modified APK:
 
 ```bash
 adb install -r aligned.apk
 ```
 
-1. Mount `/system` partition as read-write:
+5. Mount `/system` partition as read-write:
 
 ```bash
 mount -o rw,remount,rw /system
 ```
 
-1. Edit the initialization script:
+6. Edit the initialization script:
 
 ```bash
 busybox vi /system/bin/initmifiservice.sh
@@ -172,41 +166,41 @@ busybox vi /system/bin/initmifiservice.sh
    > [!NOTE]
    > This script sets the bridge interface IP. Make sure it matches your APK modifications.
 
-1. Pull the Android services framework:
+7. Pull the Android services framework:
 
 ```bash
 adb pull /system/framework/services.jar
 ```
 
-1. Decompile the services framework:
+8. Decompile the services framework:
 
 ```bash
 java -jar apktool.jar d -o services services.jar
 ```
 
-1. Update IP addresses in services framework:
+9. Update IP addresses in services framework:
     - Search for all instances of `192.168.100.` in the `services` folder
     - Replace with your chosen IP range to maintain consistency
 
-1. Recompile the services framework:
+10. Recompile the services framework:
 
 ```bash
 java -jar apktool.jar b -c -f -o services.jar services
 ```
 
-1. Push the modified services framework back to device:
+11. Push the modified services framework back to device:
 
 ```bash
 adb push services.jar /system/framework/
 ```
 
-1. Remount `/system` as read-only:
+12. Remount `/system` as read-only:
 
 ```bash
 mount -o ro,remount,ro /system
 ```
 
-1. Reboot device for changes to take effect:
+13. Reboot device for changes to take effect:
 
 ```bash
 adb reboot
@@ -214,21 +208,3 @@ adb reboot
 
 > [!WARNING]
 > Ensure all three components (APK, script, and services.jar) use the same IP range, or the device may not function correctly.
-
-### Pre-modified APK
-
-I've created a [modified version](https://github.com/AlienWolfX/UZ801-USB_MODEM/releases/download/rev1/MifiService_with_cmd_shell.apk) that:
-
-- Replaces password modification (`funcNo: 1020`) with command execution
-- Returns command results directly in the web
-
-## Troubleshooting
-
-If you encounter issues:
-
-- Ensure USB debugging is enabled
-- Ensure all dependencies are installed
-- Try different USB ports
-- Verify ADB connection: `adb devices`
-- Check USB cable quality
-- Verify root access is working

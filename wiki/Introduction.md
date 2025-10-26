@@ -25,6 +25,9 @@ The heart of the dongle is an MSM8916, running a stripped-down version of Androi
 
 ### Processor Information
 
+<details>
+    <summary>CPUINFO</summary>
+
 ```bash
 root@msm8916_32_512:/ $ cat /proc/cpuinfo
 
@@ -54,7 +57,12 @@ Serial          : 0000000000000000
 Processor       : ARMv7 Processor rev 0 (v7l)
 ```
 
+</details>
+
 ### Memory Information
+
+<details>
+    <summary>MEMINFO</summary>
 
 ```bash
 root@msm8916_32_512:/ $ cat /proc/meminfo
@@ -93,6 +101,8 @@ VmallocTotal:     499712 kB
 VmallocUsed:       50288 kB
 VmallocChunk:     311324 kB
 ```
+
+</details>
 
 ## WebUI
 
