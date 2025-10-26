@@ -11,7 +11,7 @@
 
 ## Project Statistics
 
-[![Stargazers](https://reporoster.com/stars/AlienWolfX/UZ801-USB_MODEM)](https://github.com/AlienWolfX/UZ801-USB_MODEM/stargazers)
+[![Stargazers](https://reporoster.com/stars/AlienWolfX/UZ801-USB_MODEM)](https://github.com/AlienWolfX/UZ801-USB-MODEM/stargazers)
 
 <a href="https://www.star-history.com/#AlienWolfX/UZ801-USB_MODEM&Date">
     <picture>
