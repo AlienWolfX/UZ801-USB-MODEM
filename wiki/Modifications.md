@@ -49,7 +49,7 @@ adb install busybox.apk
 ```
 
 1. Launch BusyBox:
-   - Follow the [View Display Guide](https://github.com/AlienWolfX/UZ801-USB_MODEM?tab=readme-ov-file#view-device-display)
+   - Follow the [View Display Guide](https://github.com/AlienWolfX/UZ801-USB_MODEM/wiki/Introduction#display)
    - Open BusyBox application
    - Tap "Install"
    - Grant root permissions when prompted
